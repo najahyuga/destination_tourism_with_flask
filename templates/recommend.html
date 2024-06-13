@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Tourism Recommendation - Hasil Rekomendasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .recommendation {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hasil Rekomendasi Tempat Wisata</h1>
+        {% if recommendations %}
+            <div class="recommendation">
+                <p>Tempat wisata yang direkomendasikan untuk Anda: <strong>{{ name }}</strong></p>
+                <ul>
+                    {% for place in recommendations %}
+                        <li>{{ place }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <p>Tidak ada hasil rekomendasi untuk tempat wisata <strong>{{ name }}</strong>. Silakan coba lagi.</p>
+        {% endif %}
+        <a class="back-link" href="/">Kembali ke halaman utama</a>
+    </div>
+</body>
+</html>
